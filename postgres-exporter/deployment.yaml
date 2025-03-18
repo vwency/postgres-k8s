@@ -18,6 +18,6 @@ spec:
           image: prometheuscommunity/postgres-exporter
           env:
             - name: DATA_SOURCE_NAME
-              value: "postgresql://myuser:mypassword@postgres.default.svc.cluster.local:5432/mydb?sslmode=disable"
+              value: "postgresql://myuser:mypassword@postgres.postgres-database.svc.cluster.local:5432/mydb?sslmode=disable"
           ports:
             - containerPort: 9187
