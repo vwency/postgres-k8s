@@ -7,3 +7,4 @@ kubectl apply -k .
 ```
 
 * using DNS-1123 namespacies names
+  

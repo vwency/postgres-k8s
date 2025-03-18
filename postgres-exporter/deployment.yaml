@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: postgres-exporter
   namespace: monitoring
+  labels:
+    app: postgres-exporter
+    release: postgres-stack
 spec:
   replicas: 1
   selector:
@@ -12,6 +15,7 @@ spec:
     metadata:
       labels:
         app: postgres-exporter
+        release: postgres-stack
     spec:
       containers:
         - name: exporter
