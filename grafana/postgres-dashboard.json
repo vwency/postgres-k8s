@@ -1,0 +1,61 @@
+{
+  "id": null,
+  "uid": "postgres-exporter-basic",
+  "title": "PostgreSQL Exporter - Basic",
+  "tags": [ "postgres", "exporter", "prometheus" ],
+  "timezone": "browser",
+  "schemaVersion": 16,
+  "version": 1,
+  "refresh": "5s",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "PostgreSQL - Connections",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "pg_stat_database_numbackends",
+          "legendFormat": "{{datname}}",
+          "refId": "A"
+        }
+      ],
+      "gridPos": { "x": 0, "y": 0, "w": 12, "h": 8 }
+    },
+    {
+      "type": "graph",
+      "title": "PostgreSQL - Transactions",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "rate(pg_stat_database_xact_commit[1m])",
+          "legendFormat": "Commits - {{datname}}",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(pg_stat_database_xact_rollback[1m])",
+          "legendFormat": "Rollbacks - {{datname}}",
+          "refId": "B"
+        }
+      ],
+      "gridPos": { "x": 12, "y": 0, "w": 12, "h": 8 }
+    },
+    {
+      "type": "graph",
+      "title": "PostgreSQL - Tuples Fetched/Returned",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "rate(pg_stat_database_tup_returned[1m])",
+          "legendFormat": "Returned - {{datname}}",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(pg_stat_database_tup_fetched[1m])",
+          "legendFormat": "Fetched - {{datname}}",
+          "refId": "B"
+        }
+      ],
+      "gridPos": { "x": 0, "y": 8, "w": 12, "h": 8 }
+    }
+  ]
+}
