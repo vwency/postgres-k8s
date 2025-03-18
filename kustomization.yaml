@@ -1,0 +1,5 @@
+resources:
+  - grafana
+  - postgres-exporter
+  - prometheus
+  - postgresql
