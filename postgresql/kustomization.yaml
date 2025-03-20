@@ -1,8 +1,9 @@
 namespace: postgres-database
 
 resources:
-  - deployment.yaml
+  - statefulset.yaml
   - service.yaml
+  - headless-service.yaml
   - configmap.yaml
   - pvc.yaml
   - secret.yaml

@@ -8,5 +8,11 @@ configMapGenerator:
     files:
       - postgres-dashboard.json
 
+
+resources:
+  - configmap.yaml
+  - dashboard-configmap.yaml
+  - deployment.yaml
+
 generatorOptions:
   disableNameSuffixHash: true
